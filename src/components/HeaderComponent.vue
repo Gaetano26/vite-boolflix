@@ -6,8 +6,10 @@
                     <img class="img-fluid" src="../assets/logo/Netflix-logo.png" alt="">
                 </div>
                  <div class="d-flex align-items-center gap-1">
-                    <input type="text" v-model.trim="store.search.text">
-                    <button type="button" class="btn btn-primary">Search</button>
+                    <form @submit.prevent="setSearch">
+                        <input  type="text" placeholder="Search" v-model.trim="store.search.query">
+                        <button type="submit" class="btn btn-primary">Cerca</button>
+                    </form>
                  </div>
             </div>
         </div>
@@ -17,6 +19,7 @@
  
  <script>
 import { store } from '../data/store';
+import axios from 'axios';
 
 
     export default {
@@ -24,7 +27,13 @@ import { store } from '../data/store';
             return {
                 store
             }
+        },
+        methods: {
+            setSearch() {
+            this.$emit('searchChange')
+            this.$emit('searchChangeTv')
         }
+        },
     }
  </script>
  
