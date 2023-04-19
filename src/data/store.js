@@ -4,9 +4,10 @@ export const cards = reactive({
     characterList: [],
     urlImg: 'https://image.tmdb.org/t/p/original',
     baseUrl: ' https://api.themoviedb.org/3/',
-    endpoint: '',
+    endpoint1: 'search/movie?',
+    key: 'api_key=21654f57c1b679bdb0af4addf2ca14aa',
     search: {
-        status: '',
-        name: ''
+        text: '',
+
     }
 })

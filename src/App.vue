@@ -11,6 +11,7 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import {cards} from './data/store';
 import axios from 'axios';
+
 export default {
     name : 'App',
     components: {
@@ -21,13 +22,28 @@ export default {
         cards
       }
     },
-    methods(){
-      const url = 'https://api.themoviedb.org/3/search/movie?api_key=21654f57c1b679bdb0af4addf2ca14aa'
+    methods: {
+     getMovies() {
+      const url = cards.baseUrl + cards.endpoint1;
+      let paramsObj = {
+         params: {
+          api_key: cards.key,
+          query: cards.search.text
+         }
+      }
 
-      axios.get(url).then((res) => {
-        console.log(res.data)
-      })  
-    }
+            axios.get(url, paramsObj ).then((res) => {
+              console.log(res.data)
+
+            })            
+     }
+  
+       
+    },
+    mounted() {
+      this.getMovies()
+      console.log(this.getMovies)
+    },
 }
 </script>
 
