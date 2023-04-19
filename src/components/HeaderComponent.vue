@@ -5,10 +5,10 @@
                 <div class="cont-log d-flex align-items-center">
                     <img class="img-fluid" src="../assets/logo/Netflix-logo.png" alt="">
                 </div>
-                 <div class="d-flex align-items-center gap-1">
-                    <form @submit.prevent="setSearch">
-                        <input  type="text" placeholder="Search" v-model.trim="store.search.query">
-                        <button type="submit" class="btn btn-primary">Cerca</button>
+                 <div class="d-flex align-items-center" >
+                    <form class="d-flex gap-3" @submit.prevent="setSearch">
+                        <input class="rounded ps-1" type="text" placeholder="Search" v-model.trim="store.search.query">
+                        <button type="submit" class="btn btn-success">Cerca</button>
                     </form>
                  </div>
             </div>
