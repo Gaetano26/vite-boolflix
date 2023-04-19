@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row pt-5">
             <h3 class="text-white text-center">Films</h3>
         </div>
