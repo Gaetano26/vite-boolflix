@@ -6,7 +6,7 @@
                     <img class="img-fluid" src="../assets/logo/Netflix-logo.png" alt="">
                 </div>
                  <div class="d-flex align-items-center gap-1">
-                    <input type="text" v-model.trim="cards.search.text">
+                    <input type="text" v-model.trim="store.search.text">
                     <button type="button" class="btn btn-primary">Search</button>
                  </div>
             </div>
@@ -16,13 +16,13 @@
  </template>
  
  <script>
-import { cards } from '../data/store';
+import { store } from '../data/store';
 
 
     export default {
         data() {
             return {
-                cards
+                store
             }
         }
     }

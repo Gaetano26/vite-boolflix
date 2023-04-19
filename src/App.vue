@@ -9,7 +9,7 @@
 
 <script>
 import HeaderComponent from './components/HeaderComponent.vue';
-import {cards} from './data/store';
+import {store} from './data/store';
 import axios from 'axios';
 
 export default {
@@ -19,30 +19,31 @@ export default {
     },
     data() {
       return {
-        cards
+        store
       }
     },
     methods: {
-     getMovies() {
-      const url = cards.baseUrl + cards.endpoint1;
-      let paramsObj = {
-         params: {
-          api_key: cards.key,
-          query: cards.search.text
-         }
+      getMoviesTvSeries() {
+      const url = store.baseUrl + store.endPointMovie;
+      let options = {}
+      let params = {}
+      for (let key in store.search) {
+        if (store.search[key]) {
+          params[key] = store.search[key]
+        }
       }
-
-            axios.get(url, paramsObj ).then((res) => {
-              console.log(res.data)
-
-            })            
-     }
-  
-       
-    },
+      if (Object.keys(params).length > 0) {
+        options.params = params;
+        console.log(options)
+      }
+      axios.get(url, options).then((res) => {
+        store.filmTvList = res.data
+      })
+    }
+  },
     mounted() {
-      this.getMovies()
-      console.log(this.getMovies)
+      this.getMoviesTvSeries()
+      //console.log(this.getMovies)
     },
 }
 </script>

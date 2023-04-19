@@ -1,13 +1,12 @@
 import { reactive } from 'vue';
 
-export const cards = reactive({
-    characterList: [],
-    urlImg: 'https://image.tmdb.org/t/p/original',
-    baseUrl: ' https://api.themoviedb.org/3/',
-    endpoint1: 'search/movie?',
-    key: '21654f57c1b679bdb0af4addf2ca14aa',
+export const store = reactive({
+    filmTvList: [],
+    baseUrl: 'https://api.themoviedb.org/3',
+    endPointMovie: '/movie/popular',
+    endPointTvShow: '',
     search: {
-        text: '',
-
+        query: '',
+        api_key: '21654f57c1b679bdb0af4addf2ca14aa'
     }
 })
