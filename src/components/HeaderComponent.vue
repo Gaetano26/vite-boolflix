@@ -20,7 +20,11 @@ import { cards } from '../data/store';
 
 
     export default {
-        
+        data() {
+            return {
+                cards
+            }
+        }
     }
  </script>
  
