@@ -62,7 +62,7 @@ export default {
       })
     },
     getTvList() {
-      const tvSeriesUrl = store.baseUrl + store.endPointTv
+      const tvSeriesUrl = store.baseUrl + store.search_Tv
       let options = {}
       let params = {}
       for (let key in store.search) {
