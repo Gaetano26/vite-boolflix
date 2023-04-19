@@ -1,0 +1,16 @@
+milestone 1 :
+creare il layout della pagina
+creare tutti i componenti da inserire dentro il progetto,
+dopo aver creato i componenti iniziare a sistemare il layout di tutti i componenti,
+dopo aver finito iniziare a creare e  modificare la navbar titolo e logo nel componente header,
+Se c'è tempo iniziare a compilare i componenti o componente nel main in cui saranno inseriti le immagini e le info dei film e serie tv che cercheremo tramite la navbar utilizzando le Api.
+
+
+milestone 2 :
+iniziare a compilare il main se non si è riusciti a farlo prima iniziando a lavorare con le Api.
+una volta ricavate i dati delle immagini e di tutte le info dalle nostre Api creare un evento filtrando le Api in modo da avere mostrare e stampare le immagini e le info dei film e serie tv che cerchiamo tramite la navbar.
+se c'è tempo creare un evento al click sulle immagini per girare la card che toglie l'immagine e mostra tutte le info
+
+milestone 3 : 
+iniziare a creare l'evento al click sulle immagini se non si è riusciti a farlo prima 
+
