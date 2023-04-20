@@ -26,23 +26,7 @@ export default {
       }
     },
     methods: {
-      getPopular() {
-      const url = store.baseUrl + store.endPointMovie;
-      let options = {}
-      let params = {}
-      for (let key in store.search) {
-        if (store.search[key]) {
-          params[key] = store.search[key]
-        }
-      }
-      if (Object.keys(params).length > 0) {
-        options.params = params;
-        console.log(options)
-      }
-      axios.get(url, options).then((res) => {
-        store.filmTvList = res.data.result
-      })
-    },
+      
     getMovieList() {
       const moviesUrl = store.baseUrl + store.searchMovie
       let options = {}
@@ -81,8 +65,7 @@ export default {
     }
   },
     mounted() {
-      this.getPopular()
-      //console.log(this.getPopular)
+     
     },
 }
 </script>
