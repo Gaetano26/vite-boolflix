@@ -3,13 +3,13 @@
         <div class="row pt-5">
             <h3 class="text-white text-center">Films</h3>
         </div>
-         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 gap-1s justify-content-center">
+         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 gap-1s justify-content-center altz">
             <CardComponents/>
         </div>
         <div class="row mt-5">
-            <h3 class="text-white text-center">Serie tv</h3>
+            <h3 class="text-white text-center mt-5">Serie tv</h3>
         </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 gap 1 justify-content-center pb-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 gap 1 justify-content-center pb-5 altz">
             <ListComponent/>
         </div>    
     </div>
@@ -36,4 +36,8 @@
 </script>
 
 <style lang="scss" scoped>
+  .altz{
+
+    height: fit-content;
+  }
 </style>

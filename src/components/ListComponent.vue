@@ -1,19 +1,22 @@
 <template>
-    <div class="col container-card mt-3 p-0" v-for="card in store.tvList">
+    <div class="col container-card p-0" v-for="card in store.tvList">
         
-        <div class="text-center text-white pt-5">
-            <!-- <img class="img-fluid" :src="store.imgUrl" alt=""> -->
-            <p>{{ card.name }}</p>
-            <p>{{ card.original_name }}</p>
-            <p>{{ card.original_language }}</p>
-            <p>{{ card.vote_average }}</p>
-        </div>
+         
+           <img class="img-fluid change" :src="store.imgUrl + card.poster_path" alt="">
+          <div class="info ps-3 pt-5">
+            <p>Titolo: {{ card.name }}</p>
+            <p>Titolo Originale: {{ card.original_name }}</p>
+            <p>Lingua: <span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
+            <p>Voto: {{ card.vote_average }}</p>
+          </div>
+            
     </div>
 </template>
 
 <script>
-
+    import 'flag-icons/css/flag-icons.min.css';
     import { store } from '../data/store';
+
     export default {
         name: 'ListComponent',
         data() {
@@ -27,6 +30,26 @@
 <style lang="scss" scoped>
 .container-card {
     background-color: black;
-    height: 300px;
+    max-height: 390px;
 }
+.info {
+    display: none;
+    color: white;
+    
+}
+ .container-card:hover {
+    .info{
+        display: block;
+    }
+    .change {
+        display: none;
+    }
+ }
+ p {
+    font-size: 13px;
+ }
+ img {
+    max-height: 390px;
+    width: 100%;
+ }
 </style>
