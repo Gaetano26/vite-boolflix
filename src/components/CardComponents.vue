@@ -49,7 +49,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
+  transition: transform 0.9s;
   transform-style: preserve-3d;
 }
 
