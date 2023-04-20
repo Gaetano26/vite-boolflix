@@ -1,14 +1,18 @@
 <template>
     <div class="col container-card p-0" v-for="card in store.tvList">
-        
-         
-           <img class="img-fluid change" :src="store.imgUrl + card.poster_path" alt="">
-          <div class="info ps-3 pt-5">
-            <p>Titolo: {{ card.name }}</p>
-            <p>Titolo Originale: {{ card.original_name }}</p>
-            <p>Lingua: <span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
-            <p>Voto: {{ card.vote_average }}</p>
-          </div>
+           <div class="all">
+                <div class="cont-img">
+                    <img class="img-fluid change" :src="store.imgUrl + card.poster_path" alt="">
+                </div>
+                
+                <div class="info ps-3 pt-5">
+                    <p>Titolo: {{ card.name }}</p>
+                    <p>Titolo Originale: {{ card.original_name }}</p>
+                    <p>Lingua: <span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
+                    <p>Voto: {{ card.vote_average }}</p>
+                </div>
+           </div>
+           
             
     </div>
 </template>
@@ -31,18 +35,25 @@
 .container-card {
     background-color: black;
     max-height: 390px;
+    
+}
+.all {
+    position: relative;
+    transition: trasform 0,7;
+    transform-style: preserve-3d;
 }
 .info {
-    display: none;
     color: white;
     
 }
- .container-card:hover {
+ .container-card:hover .all {
+    transform: rotateY(180deg);
     .info{
-        display: block;
+        position: absolute;
     }
     .change {
-        display: none;
+        position: absolute;
+        transform: rotateY(180deg);
     }
  }
  p {
