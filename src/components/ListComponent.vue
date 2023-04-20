@@ -5,11 +5,13 @@
                     <img class="img-fluid " :src="store.imgUrl + card.poster_path" alt="">
                 </div>
                 
-                <div class="info ps-3 pt-5 flip-card-back">
+                <div class="info px-3 pt-3 flip-card-back">
+                    
                     <p>Titolo: {{ card.name }}</p>
                     <p>Titolo Originale: {{ card.original_name }}</p>
                     <p>Lingua: <span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
                     <p>Voto: {{ card.vote_average }}</p>
+                    <p>{{ card.overview }}</p>
                 </div>
            </div>
            
@@ -25,9 +27,12 @@
         name: 'ListComponent',
         data() {
             return {
-                store
+                store,
             }
-        }
+        },
+        mounted() {
+
+        },
     }
 </script>
 
@@ -73,7 +78,7 @@
   color: white;
 }
 p {
-  font-size: 13px;
+  font-size: 10px;
 }
 img {
   max-height: 340px;
