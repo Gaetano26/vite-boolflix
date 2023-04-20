@@ -10,7 +10,7 @@
                     <p>Titolo: {{ card.name }}</p>
                     <p>Titolo Originale: {{ card.original_name }}</p>
                     <p>Lingua: <span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
-                    <p>Voto: {{ card.vote_average }}</p>
+                    <p>Voto: <i class="fa-solid fa-star" v-for="star in Math.round(card.vote_average / 2)" ></i></p>
                     <p>{{ card.overview }}</p>
                 </div>
            </div>
@@ -55,7 +55,7 @@
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
-/* Position the front and back side */
+
 .flip-card-front,
 .flip-card-back {
   position: absolute;
