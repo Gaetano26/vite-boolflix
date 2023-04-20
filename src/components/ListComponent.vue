@@ -1,11 +1,11 @@
 <template>
-    <div class="col container-card p-0" v-for="card in store.tvList">
-           <div class="all">
-                <div class="cont-img change">
+    <div class="col p-1 mt-1 flip-card" v-for="card in store.tvList">
+           <div class=" flip-card-inner">
+                <div class=" flip-card-front">
                     <img class="img-fluid " :src="store.imgUrl + card.poster_path" alt="">
                 </div>
                 
-                <div class="info ps-3 pt-5">
+                <div class="info ps-3 pt-5 flip-card-back">
                     <p>Titolo: {{ card.name }}</p>
                     <p>Titolo Originale: {{ card.original_name }}</p>
                     <p>Lingua: <span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
@@ -32,41 +32,52 @@
 </script>
 
 <style lang="scss" scoped>
-.container-card {
-    background-color: black;
-    max-height: 390px;
-    background-color: transparent;
-     perspective: 1000px; 
-    
+.flip-card {
+  background-color: transparent;
+  width: 260px;
+  height: 345px;
+  perspective: 1000px; 
 }
-.all {
-    position: relative;
-    width: 100%;
-     height: 100%;
-     text-align: center;
-    transition: transform 0.8s ;
-    transform-style: preserve-3d;
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.flip-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
 }
 .info {
-    color: white;
-    transform: rotateY(180deg);
-    
+  color: white;
 }
-.container-card:hover .all {
-transform: rotateY(180deg);
+p {
+  font-size: 13px;
 }
-.info , .change{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden; }
- 
- p {
-    font-size: 13px;
- }
- img {
-    max-height: 390px;
-    width: 100%;
- }
+img {
+  max-height: 340px;
+  width: 100%;
+  
+}
 </style>

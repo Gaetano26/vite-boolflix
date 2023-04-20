@@ -1,12 +1,19 @@
 <template>
-    <div class="col container-card  p-0" v-for="card in store.filmTvList">
-            <img class="img-fluid change" :src="store.imgUrl + card.poster_path" alt="">
-            <div class="info ps-3 pt-5">
+    <div class="col p-1 mt-1 flip-card" v-for="card in store.filmTvList">
+        <div class=" flip-card-inner" >
+            <div class=" flip-card-front">
+                <img class="img-fluid" :src="store.imgUrl + card.poster_path" alt="">
+            </div>
+
+             
+            <div class="info ps-3 pt-5 flip-card-back">
                 <p>Titolo: {{ card.title }}</p>
                 <p>Titolo Originale: {{ card.original_title }}</p>
                 <p>Lingua:<span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
                 <p>Voto:{{ card.vote_average }}</p>
             </div>
+        </div>
+           
             
         </div>
 </template>
@@ -31,28 +38,52 @@ export default {
  
 
 <style lang="scss" scoped>
-.container-card {
-    background-color: black;
-    max-height: 395px;
+.flip-card {
+  background-color: transparent;
+  width: 260px;
+  height: 345px;
+  perspective: 1000px; 
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.flip-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
 }
 .info {
-    display: none;
-    color: white;
-    
+  color: white;
 }
- .container-card:hover {
-    .info{
-        display: block;
-    }
-    .change {
-        display: none;
-    }
- }
- p {
-    font-size: 13px;
- }
- img {
-    max-height: 390px;
-    width: 100%;
- }
+p {
+  font-size: 13px;
+}
+img {
+  max-height: 340px;
+  width: 100%;
+  
+}
 </style>
