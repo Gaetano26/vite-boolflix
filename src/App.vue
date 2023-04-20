@@ -73,10 +73,10 @@ export default {
 <style lang="scss" scoped>
    header {
     background-color: black;
-    height: 13vh;
+    height: 14vh;
    }
    main {
-    height: 87vh;
+    height: 86vh;
     overflow-y: auto;
     scroll-behavior: smooth;
    }

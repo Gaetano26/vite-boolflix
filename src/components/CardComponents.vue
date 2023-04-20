@@ -6,7 +6,7 @@
             </div>
 
              
-            <div class="info px-3 pt-5 flip-card-back">
+            <div class="info px-2 pt-5 flip-card-back">
                 <p>Titolo: {{ card.title }}</p>
                 <p>Titolo Originale: {{ card.original_title }}</p>
                 <p>Lingua:<span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
@@ -80,7 +80,7 @@ export default {
   color: white;
 }
 p {
-  font-size: 10px;
+  font-size: 9px;
 }
 img {
   max-height: 340px;

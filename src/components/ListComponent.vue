@@ -5,7 +5,7 @@
                     <img class="img-fluid " :src="store.imgUrl + card.poster_path" alt="">
                 </div>
                 
-                <div class="info px-3 pt-3 flip-card-back">
+                <div class="info px-2 pt-5 flip-card-back">
                     
                     <p>Titolo: {{ card.name }}</p>
                     <p>Titolo Originale: {{ card.original_name }}</p>
@@ -78,7 +78,7 @@
   color: white;
 }
 p {
-  font-size: 10px;
+  font-size: 9px;
 }
 img {
   max-height: 340px;
