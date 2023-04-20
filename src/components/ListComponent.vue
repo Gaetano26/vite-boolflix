@@ -1,5 +1,5 @@
 <template>
-    <div class="col container-card p-1" v-for="card in store.tvList">
+    <div class="col container-card p-0" v-for="card in store.tvList">
            <div class="all">
                 <div class="cont-img change">
                     <img class="img-fluid " :src="store.imgUrl + card.poster_path" alt="">
@@ -35,13 +35,16 @@
 .container-card {
     background-color: black;
     max-height: 390px;
+    background-color: transparent;
+     perspective: 1000px; 
     
 }
 .all {
     position: relative;
     width: 100%;
-    height: 100%;
-    transition: trasform 0,7;
+     height: 100%;
+     text-align: center;
+    transition: transform 0.8s ;
     transform-style: preserve-3d;
 }
 .info {
@@ -49,17 +52,15 @@
     transform: rotateY(180deg);
     
 }
-    .container-card:hover .all {
-    transform: rotateY(180deg);
-    .info , .change{
+.container-card:hover .all {
+transform: rotateY(180deg);
+}
+.info , .change{
         position: absolute;
         width: 100%;
         height: 100%;
         -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-       
-    }
+        backface-visibility: hidden; }
  
  p {
     font-size: 13px;
