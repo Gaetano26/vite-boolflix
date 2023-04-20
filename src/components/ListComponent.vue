@@ -1,5 +1,5 @@
 <template>
-    <div class="col container-card p-0" v-for="card in store.tvList">
+    <div class="col container-card p-1" v-for="card in store.tvList">
            <div class="all">
                 <div class="cont-img change">
                     <img class="img-fluid " :src="store.imgUrl + card.poster_path" alt="">
