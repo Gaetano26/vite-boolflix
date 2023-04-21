@@ -5,8 +5,8 @@
       </header>
       <main class="bg-dark">
         <FilmsComponent />
-        <div class="aler alert-success" v-if="store.errors.movie"><p>{{ store.errors.movie }}</p></div>
-        <div class="aler alert-success" v-if="store.errors.tv"><p>{{ store.errors.tv }}</p></div>
+        <div class="alert alert-success" v-if="store.errors.movie"><p>{{ store.errors.movie }}</p></div>
+        <div class="alert alert-success" v-if="store.errors.tv"><p>{{ store.errors.tv }}</p></div>
       </main>
 </template>
 
@@ -46,13 +46,13 @@ export default {
         store.filmTvList = res.data.results
        
       }).catch((error)=> {
-        this.store.errors.movie = error.message
+        store.errors.movie = error.message
       }).finally(() => {
         store.loader.movie = false;
       });
     },
     getTvList() {
-      const tvSeriesUrl = store.baseUrl + store.search_Tv
+      const tvSeriesUrl = store.baseUrl + store.search
       let options = {}
       let params = {}
       for (let key in store.search) {
@@ -68,7 +68,8 @@ export default {
         store.tvList = res.data.results
         console.log(store.tvList)
       }).catch((error)=> {
-        this.store.errors.tv = error.message;
+        store.errors.tv = error.message;
+        console.log(error)
       }).finally(() => {
         store.loader.tv = false;
       });
