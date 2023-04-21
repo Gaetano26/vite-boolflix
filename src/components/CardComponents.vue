@@ -1,17 +1,24 @@
 <template>
-    <div class="col p-1 mt-1 flip-card" v-for="card in store.filmTvList">
+    <div class="col p-1 mt-1 flip-card" v-for="(card,index) in store.filmTvList" :key="index">
         <div class=" flip-card-inner" >
-            <div class=" flip-card-front">
+            <div class=" flip-card-front" v-if="card.poster_path">
                 <img class="img-fluid" :src="store.imgUrl + card.poster_path" alt="">
+            </div>
+            <div class=" flip-card-front" v-else>
+                    <img class="img-fluid h-100" src="/images/Immagine_non_disponibile.jpg" alt="non disponibile">
             </div>
 
              
             <div class="info px-2 pt-5 flip-card-back">
                 <p>Titolo: {{ card.title }}</p>
                 <p>Titolo Originale: {{ card.original_title }}</p>
-                <p>Lingua:<span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
+                <div class="d-flex align-items-center">
+                      <p>Lingua:</p>
+                      <img class="planet ps-1 mb-3" :src=" '/images/' + flag(index) + '.png'"  :alt="card.original_language">
+                </div>
                 <p>Voto: <i class="fa-solid fa-star" v-for="star in Math.round(card.vote_average / 2)" ></i></p>
                 <p>{{ card.overview }}</p>
+                <div class="text-white bg-danger text-center" v-if="store.errors.movie">{{ store.errors.movie }}</div>
             </div>
         </div>
            
@@ -21,15 +28,29 @@
 
 <script>
 import { store } from '../data/store';
-import 'flag-icons/css/flag-icons.min.css';
 export default {
     name: 'CardComponents',
     data() {
         return {
             store,
-            unknownFlag : 'unknown'
+            flags: [
+                'de',
+                'en', 'es',
+                'fr', 'hi',
+                'it', 'ja',
+                'ko', 'zh',
+             ]
            
         }
+    },
+    methods: {
+      flag(index) {
+                    if (this.flags.includes(this.store.filmTvList[index].original_language)) {
+                        return this.store.filmTvList[index].original_language;
+                    } else {
+                        return 'wrld'
+                    }
+              },
     },
     mounted() {
         
@@ -86,5 +107,9 @@ img {
   max-height: 340px;
   width: 100%;
   
+}
+.planet {
+  max-width: 25px;
+  max-height: 25px;
 }
 </style>

@@ -1,15 +1,22 @@
 <template>
-    <div class="col p-1 mt-1 flip-card" v-for="card in store.tvList">
+    <div class="col p-1 mt-1 flip-card" v-for="(card,index) in store.tvList" :key="index">
            <div class=" flip-card-inner">
-                <div class=" flip-card-front">
-                    <img class="img-fluid " :src="store.imgUrl + card.poster_path" alt="">
+                <div class=" flip-card-front" v-if="card.poster_path">
+                    <img class="img-fluid h-100" :src="store.imgUrl + card.poster_path" alt="">
+                </div>
+                <div class=" flip-card-front" v-else>
+                    <img class="img-fluid h-100" src="/images/Immagine_non_disponibile.jpg" alt="non disponibile">
                 </div>
                 
-                <div class="info px-2 pt-5 flip-card-back">
+                <div class="info px-2 pt-3 flip-card-back">
                     
                     <p>Titolo: {{ card.name }}</p>
                     <p>Titolo Originale: {{ card.original_name }}</p>
-                    <p>Lingua: <span class="ms-2" :class="'fi fi-' +  card.original_language + ' fis'"></span></p>
+                    <div class="d-flex align-items-center">
+                      <p>Lingua:</p>
+                      <img class="planet ps-1 mb-3" :src=" '/images/' + flag(index) + '.png'"  :alt="card.original_language">
+                    </div>
+                    
                     <p>Voto: <i class="fa-solid fa-star" v-for="star in Math.round(card.vote_average / 2)" ></i></p>
                     <p>{{ card.overview }}</p>
                 </div>
@@ -20,7 +27,6 @@
 </template>
 
 <script>
-    import 'flag-icons/css/flag-icons.min.css';
     import { store } from '../data/store';
 
     export default {
@@ -28,12 +34,29 @@
         data() {
             return {
                 store,
+                flags: [
+                'de',
+                'en', 'es',
+                'fr', 'hi',
+                'it', 'ja',
+                'ko', 'zh',
+             ]
             }
         },
-        mounted() {
-
-        },
-    }
+          computed: {
+               
+          },
+          methods: {
+             flag(index) {
+                    if (this.flags.includes(this.store.tvList[index].original_language)) {
+                        return this.store.tvList[index].original_language;
+                    } else {
+                        return 'wrld'
+                    }
+              },
+        }
+      }
+    
 </script>
 
 <style lang="scss" scoped>
@@ -84,5 +107,13 @@ img {
   max-height: 340px;
   width: 100%;
   
+}
+.img-g {
+  max-height: 340px;
+  width: 100%;
+}
+.planet {
+  max-width: 25px;
+  max-height: 25px;
 }
 </style>

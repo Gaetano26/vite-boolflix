@@ -12,5 +12,9 @@ export const store = reactive({
         query: '',
         api_key: '21654f57c1b679bdb0af4addf2ca14aa',
        
+    },
+    errors: {
+        movie: '',
+        tv: '',
     }
 })

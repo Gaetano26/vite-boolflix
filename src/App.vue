@@ -43,6 +43,8 @@ export default {
       axios.get(moviesUrl, options).then((res) => {
         store.filmTvList = res.data.results
        
+      }).catch((error)=> {
+        this.store.errors.movie = ` Errore ricarica la pagina`
       })
     },
     getTvList() {
@@ -61,6 +63,8 @@ export default {
       axios.get(tvSeriesUrl, options).then((res) => {
         store.tvList = res.data.results
         console.log(store.tvList)
+      }).catch((error)=> {
+        this.store.errors.tv = ` Errore ricarica la pagina`
       })
     }
   },
