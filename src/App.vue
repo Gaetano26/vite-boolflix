@@ -3,10 +3,11 @@
         <HeaderComponent @search-change="getMovieList" @search-change-tv="getTvList"/>
         
       </header>
+
       <main class="bg-dark">
         <FilmsComponent />
         <div class="alert alert-success" v-if="store.errors.movie"><p>{{ store.errors.movie }}</p></div>
-        <div class="alert alert-success" v-if="store.errors.tv"><p>{{ store.errors.tv }}</p></div>
+        <div class="alert alert-success" v-if="store.errors.tv"><p> erroe {{ store.errors.tv }}</p></div>
       </main>
 </template>
 
@@ -20,7 +21,9 @@ export default {
     name : 'App',
     components: {
           HeaderComponent,
-          FilmsComponent
+          FilmsComponent,
+
+          
     },
     data() {
       return {
@@ -30,6 +33,8 @@ export default {
     methods: {
       
     getMovieList() {
+      store.errors.movie = '';
+      store.loader.movie = true;
       const moviesUrl = store.baseUrl + store.searchMovie
       let options = {}
       let params = {}
@@ -52,7 +57,9 @@ export default {
       });
     },
     getTvList() {
-      const tvSeriesUrl = store.baseUrl + store.search
+      store.errors.tv = '';
+      store.loader.tv = true;
+      const tvSeriesUrl = store.baseUrl + store.search_Tv 
       let options = {}
       let params = {}
       for (let key in store.search) {

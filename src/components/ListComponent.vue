@@ -1,6 +1,9 @@
 <template>
-    <div class="col p-1 mt-1 flip-card" v-for="(card,index) in store.tvList" :key="index">
-           <div class=" flip-card-inner">
+    <div class="row"> <h3 class="text-white">Tv - Series</h3></div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5  justify-content-center pb-5 altz">
+          <div class="col p-1 mt-1 flip-card" v-for="(card,index) in store.tvList" :key="index">
+             <div class=" flip-card-inner">
                 <div class=" flip-card-front" v-if="card.poster_path">
                     <img class="img-fluid h-100" :src="store.imgUrl + card.poster_path" alt="">
                 </div>
@@ -21,8 +24,9 @@
                     <p>{{ card.overview }}</p>
                     <div class="text-white bg-danger text-center" v-if="store.errors.movie">{{ store.errors.movie }}</div>
                 </div>
-            </div>
-    </div>
+              </div>
+          </div>
+     </div>
 
 </template>
 

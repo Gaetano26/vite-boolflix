@@ -1,17 +1,12 @@
 <template>
-    <div class="container">
-        <div class="row pt-5">
-            <h3 class="text-white">Films</h3>
-        </div>
-         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5  justify-content-center altz">
-            <CardComponents/>
-        </div>
-        <div class="row mt-5">
-            <h3 class="text-white mt-5">Serie tv</h3>
-        </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5  justify-content-center pb-5 altz">
-            <ListComponent/>
-        </div>    
+    <div class="container" v-if="!store.loader.tv && !store.loader.movie">
+         <CardComponents />
+         <ListComponent/>
+        
+    </div>
+    <div class="container-fluid" v-else>
+     <LoaderComponent />   
+
     </div>
    
 </template>
@@ -19,13 +14,16 @@
 <script>
     import ListComponent from './ListComponent.vue';
     import CardComponents from './CardComponents.vue';
+    import LoaderComponent from './LoaderComponent.vue';
     import axios from 'axios';
     import { store } from '../data/store';
     export default {
         name: 'FilmsComponent',
         components: {
             CardComponents,
-            ListComponent
+            ListComponent,
+            LoaderComponent,
+
         },
         data() {
             return {
@@ -36,8 +34,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .altz{
-
-    height: fit-content;
-  }
+ 
 </style>
