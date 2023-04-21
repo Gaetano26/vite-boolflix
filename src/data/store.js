@@ -16,5 +16,6 @@ export const store = reactive({
     errors: {
         movie: '',
         tv: '',
-    }
+    },
+    
 })

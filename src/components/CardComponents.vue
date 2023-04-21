@@ -18,12 +18,11 @@
                 </div>
                 <p>Voto: <i class="fa-solid fa-star" v-for="star in Math.round(card.vote_average / 2)" ></i></p>
                 <p>{{ card.overview }}</p>
-                <div class="text-white bg-danger text-center" v-if="store.errors.movie">{{ store.errors.movie }}</div>
+               
             </div>
         </div>
-           
-            
-        </div>
+      </div>
+       <div class="text-white bg-danger text-center" v-if="store.errors.movie">{{ store.errors.movie }}</div>
 </template>
 
 <script>
