@@ -22,7 +22,6 @@
             </div>
         </div>
       </div>
-       <div class="text-white bg-danger text-center" v-if="store.errors.movie">{{ store.errors.movie }}</div>
 </template>
 
 <script>

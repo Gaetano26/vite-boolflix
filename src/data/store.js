@@ -17,5 +17,8 @@ export const store = reactive({
         movie: '',
         tv: '',
     },
-    
+    loader: {
+        movie: false,
+        tv: false ,
+    }
 })

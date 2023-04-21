@@ -23,7 +23,6 @@
                 </div>
             </div>
     </div>
-    <div class="text-white bg-danger text-center" v-if="store.errors.tv">{{ store.errors.tv }}</div>
 
 </template>
 
