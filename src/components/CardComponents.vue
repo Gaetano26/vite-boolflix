@@ -13,14 +13,14 @@
                 </div>
 
                 
-                <div class="info px-2 pt-5 flip-card-back">
+                <div class="info px-2 pt-3 flip-card-back">
                     <p>Titolo: {{ card.title }}</p>
                     <p>Titolo Originale: {{ card.original_title }}</p>
                     <div class="d-flex align-items-center">
                           <p>Lingua:</p>
                           <img class="planet ps-1 mb-3" :src=" '/images/' + flag(index) + '.png'"  :alt="card.original_language">
                     </div>
-                    <p>Voto: <i class="fa-solid fa-star" v-for="star in Math.round(card.vote_average / 2)" ></i></p>
+                    <p>Voto: <i class="fa-solid fa-star text-danger " v-for="star in Math.round(card.vote_average / 2)" ></i></p>
                     <p>{{ card.overview }}</p>
                   
                 </div>

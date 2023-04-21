@@ -1,5 +1,5 @@
 <template>
-    <div class="row"> <h3 class="text-white">Tv - Series</h3></div>
+    <div class="row mt-3"> <h3 class="text-white">Tv - Series</h3></div>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5  justify-content-center pb-5 altz">
           <div class="col p-1 mt-1 flip-card" v-for="(card,index) in store.tvList" :key="index">
@@ -20,7 +20,7 @@
                       <img class="planet ps-1 mb-3" :src=" '/images/' + flag(index) + '.png'"  :alt="card.original_language">
                     </div>
                     
-                    <p>Voto: <i class="fa-solid fa-star" v-for="star in Math.round(card.vote_average / 2)" ></i></p>
+                    <p>Voto: <i class="fa-solid fa-star text-danger" v-for="star in Math.round(card.vote_average / 2)" ></i></p>
                     <p>{{ card.overview }}</p>
                     <div class="text-white bg-danger text-center" v-if="store.errors.movie">{{ store.errors.movie }}</div>
                 </div>
